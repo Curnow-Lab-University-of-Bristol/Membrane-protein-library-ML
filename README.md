@@ -47,5 +47,6 @@ Universal adaptors were introduced at either end of all library sequences with t
 
 % cat 5_prime_extend_high.fasta | seqkit mutate -i -1:GCGGCCGCACTCGAGCTGGTGCCGCGCGGCAGCA > end_ext_with_Ala_spacer.fasta
 ```
+# Nanopore sequencing
 
 
