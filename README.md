@@ -14,7 +14,7 @@ Branch 'Nanopore-sequencing' contains code for NGS basecalling and sequence filt
 |curnow_dim_seqs.fasta|FACS-selected sequences - low GFP phenotype|
 |curnow_dim_seqs_protein.fasta|Translation of FACS-selected sequences - low GFP phenotype|
 |no_selected_seqs_DNA.fasta|Oligo pool nucelotide sequences with FACS-selected sequences	removed. Unlabelled, used for inference|
-|no_selected_seqs_protein.fasta|Traslated oligo pool sequences with FACS-selected sequences removed. Unlabelled, used for inference|
+|no_selected_seqs_protein.fasta|Translated oligo pool sequences with FACS-selected sequences removed. Unlabelled, used for inference|
 |protein_predicted.csv|Model inference of expression level of each sequence	from ***no_selected_seqs_protein.fasta***|
 
 
