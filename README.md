@@ -27,7 +27,14 @@ The Rosetta design run in Hardy et al (2023) PNAS 120 (16) e2300137120 generated
 -out:path:all output
 -missing_density_to_jump true
 ```
-Using Rosetta 3.14 and the Slurm command:
-```
-srun extract_pdbs.serialization.linuxgccrelease
-```
+Using Rosetta 3.14 and the Slurm command ```srun extract_pdbs.serialization.linuxgccrelease```
+
+FASTA sequences were obtained from each extracted decoy with ```$ python pdb2fasta.py *.pdb > all_seqs.fasta```
+
+Seqkit was installed via homebrew ```% brew install seqkit```
+
+Sequences were unduplicated with ```% seqkit rmdup -s all_seqs.fasta > unique_seq.fasta```
+
+
+
+
