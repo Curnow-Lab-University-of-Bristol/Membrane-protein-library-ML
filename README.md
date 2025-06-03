@@ -16,7 +16,7 @@ This repository contains datafiles and additional code for the CytbX ML paper.
 |no_selected_seqs_protein.fasta|Translated oligo pool sequences with FACS-selected sequences removed. Unlabelled|
 |no_selected_seqs_protein.csv|Translated oligo pool sequences with FACS-selected sequences removed. Unlabelled, used for inference|
 |labelled_fasta.csv|Protein sequences from FACS sorted populations labelled bright=1, dim=0|
-|protein_predicted.csv|Model inference of expression level of each sequence	from ***no_selected_seqs_protein.fasta***|
+|predicted_protein.csv|Model inference of expression level of each sequence	from ***no_selected_seqs_protein.fasta***|
 |membrane_protein_ML.ipynb|Jupyter notebook for all machine learning|
 
 # Extracting design sequences
