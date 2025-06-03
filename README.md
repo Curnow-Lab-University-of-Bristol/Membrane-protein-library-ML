@@ -8,6 +8,7 @@ Branch 'Nanopore-sequencing' contains code for NGS basecalling and sequence filt
 |Filename|Description|
 |--------|-----------|
 |original_designs.fasta|12,248 unique protein sequences from the original Rosetta design run, as described in Hardy et al (2023) PNAS 120 (16) e2300137120|
+|resfile.txt|The original design resfile dictating sequence positions and the design alphabet|
 |oligo_pool.fasta|DNA sequences backtranslated to nucleotide from ***original_designs.fasta***, using the _E. coli_ codon usage table for high-expressing sequences|
 |curnow_bright_seqs.fasta|FACS-selected sequences - high-GFP phenotype|
 |curnow_bright_seqs_protein.fasta|Translation of FACS-selected sequences - high-GFP phenotype|
