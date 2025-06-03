@@ -35,6 +35,17 @@ Seqkit was installed via homebrew ```% brew install seqkit```
 
 Sequences were unduplicated with ```% seqkit rmdup -s all_seqs.fasta > unique_seq.fasta```
 
+Leaving 12,248 unique protein sequences. _EMBOSS_ tools were then used to backtranslate each amino acid sequence to a cognate nucleotide sequence based upon the codon-usage table for high-expressing _Escherichia coli_ proteins:
+```
+% brew install emboss
+% embossdata -fetch -file Eecoli_high.cut
+% backtranseq -cfile Eecoli.cut unique_seq.fasta
+```
+Universal adaptors were introduced at either end of all library sequences with the seqkit mutate function:
+```
+% cat unique_DNA_high.fasta | seqkit mutate -i 0:ACTTTAAGAAGGAGATATACCATG > 5_prime_extend_high.fasta     
 
+% cat 5_prime_extend_high.fasta | seqkit mutate -i -1:GCGGCCGCACTCGAGCTGGTGCCGCGCGGCAGCA > end_ext_with_Ala_spacer.fasta
+```
 
 
