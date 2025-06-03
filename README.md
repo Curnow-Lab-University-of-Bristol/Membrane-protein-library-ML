@@ -48,5 +48,75 @@ Universal adaptors were introduced at either end of all library sequences with t
 % cat 5_prime_extend_high.fasta | seqkit mutate -i -1:GCGGCCGCACTCGAGCTGGTGCCGCGCGGCAGCA > end_ext_with_Ala_spacer.fasta
 ```
 # Nanopore sequencing
+Nanopore basecalling used Oxford Nanopore Dorado 0.7.1 in duplex mode on the University of Bristol HPC cluster BluePebble.
 
+Raw sequencing data (POD5) was split by channel information on the local computer.
+
+### Splitting POD5 files by channel:
+Install POD5 python tools:
+```
+% pip install pod5
+```
+Then:
+```
+% pod5 view /path/to/pod5/folder/ --include "read_id, channel" --output summary.tsv
+```
+This creates file 'summary.tsv' with channel information. 
+```
+% pod5 subset /path/to/pod5/folder/ --summary summary.tsv --columns channel --output split_by_channel
+```
+### Basecalling
+Dorado 0.7.1 for linux64 was downloaded from https://github.com/nanoporetech/dorado. To install on HPC:
+```
+$ tar -xzvf dorado-0.7.1-linux-x64.tar.gz
+```
+Run using Slurm submission on a single GPU node, specifying FASTQ output. The working directory requires the split pod5 files in subdirectory 'split_pod5s'. 
+```
+#!/bin/bash
+#SBATCH --job-name=dorado_basecalling
+#SBATCH --nodes=1
+#SBATCH --partition=gpu
+#SBATCH --gres=gpu:1
+#SBATCH --cpus-per-task=8
+#SBATCH --mem=20GB
+#SBATCH --output=dorado_basecalling_%j.log
+
+module add cuda/12.4.1
+export PATH="path/to/directory/nanopore/dorado-0.7.1-linux-x64/bin:$PATH"
+dorado duplex --emit-fastq sup split_pod5s/ > seq_file.fastq
+```
+This takes ~5h to complete at 8e+04 bases/s, duplex rate 16%.
+
+# Sequence analysis
+Install EMBOSS and seqkit via homebrew and fastq-filter (https://github.com/LUMC/fastq-filter)
+```
+% brew install seqkit
+% brew install EMBOSS
+% pip install fastq-filter
+```
+Remove first 150 nt of each nanopore run, since these are of lower quality
+```
+% seqkit seq_file.fastq -r 150:-1 > seq_file_trim.fastq
+```
+Filter on length to remove short and very long reads
+```
+% seqkit seq seq_file_trim.fastq -m 1000 -M 14000 >  seq_file_short.fastq
+```
+Filter the remaining reads by quality:
+```
+% fastq-filter -e 0.001 -o seq_file_Q30.fastq seq_file_short.fastq.fastq
+```
+To extract the open reading frame for library-gfp fusions:
+```
+% getorf -sequence seq_file_Q30.fastq -minsize 1119 -maxsize 1119 -reverse Y -find 3 -outseq seq_file_Q30_orfs_nt.fasta
+```
+Flag ‘-find 3’ locates ORFS between start and stop codon, and retains the output as nucleotide. 
+To isolate the library sequences:
+```
+% seqkit subseq seq_file_Q30_orfs_nt.fasta -r 1:339 > seq_file_Q30_orfs_library_nt.fasta
+```
+Finally, remove duplicate sequences and print one instance of each unique sequence to file
+```
+% seqkit rmdup seq_file_Q30_orfs_library_nt.fasta -s -d Q30_nt_dups.fasta -o Q30_nt_unique.fasta
+```    
 
