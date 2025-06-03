@@ -17,6 +17,7 @@ This repository contains datafiles and additional code for the CytbX ML paper.
 |no_selected_seqs_protein.csv|Translated oligo pool sequences with FACS-selected sequences removed. Unlabelled, used for inference|
 |labelled_fasta.csv|Protein sequences from FACS sorted populations labelled bright=1, dim=0|
 |protein_predicted.csv|Model inference of expression level of each sequence	from ***no_selected_seqs_protein.fasta***|
+|membrane_protein_ML.ipynb|Jupyter notebook for all machine learning|
 
 # Extracting design sequences
 The Rosetta design run in Hardy et al (2023) PNAS 120 (16) e2300137120 generated 18,339 independent computational design decoys. These design decoys were extracted from 50 Rosetta silent files using the ***extract.pdbs*** command. Silent file #22 was prematurely terminated because of a time limit imposed during the design run and so was treated separately from the other 49 files, which were extracted in a single batch. The relevant flags were:
