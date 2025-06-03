@@ -123,4 +123,4 @@ Finally, remove duplicate sequences and print one instance of each unique sequen
 % seqkit rmdup seq_file_Q30_orfs_library_nt.fasta -s -d Q30_nt_dups.fasta -o Q30_nt_unique.fasta
 ```    
 # Machine Learning
-Machine learning was implemented in a Jupyter Notebook.
+Machine learning was implemented in a Jupyter Notebook. The input files are ***labelled_fasta.csv*** which is the FACS-selected sequences with appropriate labels and ***no_selected_seqs_protein.csv*** which is the remainder of the oligo library used for inference.
