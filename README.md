@@ -1,6 +1,6 @@
 # Membrane-protein-library-ML
 
-This repository contains datafiles and additional code for the membrane protein ML paper, using computational libraries to train predeictive models of membrane protein expresion in E. coli.
+This repository contains datafiles and additional code for the (unpublished) membrane protein ML paper, using computational libraries to train predeictive models of membrane protein expresion in E. coli.
 
 ### Files available here
 |Filename|Description|
