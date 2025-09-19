@@ -128,4 +128,4 @@ Finally, remove duplicate sequences and print one instance of each unique sequen
 Machine learning was implemented in a Jupyter Notebook (ver. 1.1.1). The input files are ***labelled_fasta.csv*** which is the FACS-selected sequences with appropriate labels and ***no_selected_seqs_protein.csv*** which is the remainder of the oligo library used for inference. The analysis presented is at protein level, equivalent datafiles are provided here to allow analysis at DNA level if required. Packages were installed via Anaconda navigator and versions were, to best knowledge: pandas 2.2.3, seaborn 0.13.2, umap-learn 0.5.4, shap 0.47.2, matplotlib 3.10.0.
 
 # Raw sequencing files
-The raw DNA sequencing data is in the Nanopore .pod5 format. Raw files are deposited at the BioStudies repository.
+The raw DNA sequencing data is in the Nanopore .pod5 format. Raw files are deposited at the EMBL-EBI BioStudies repository.
