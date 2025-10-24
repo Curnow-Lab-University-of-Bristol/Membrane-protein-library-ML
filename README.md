@@ -125,7 +125,28 @@ Finally, remove duplicate sequences and print one instance of each unique sequen
 % seqkit rmdup seq_file_Q30_orfs_library_nt.fasta -s -d Q30_nt_dups.fasta -o Q30_nt_unique.fasta
 ```    
 # Machine Learning
-Machine learning was implemented in a Jupyter Notebook (ver. 1.1.1). The input files are ***labelled_fasta.csv*** which is the FACS-selected sequences with appropriate labels and ***no_selected_seqs_protein.csv*** which is the remainder of the oligo library used for inference. The analysis presented is at protein level, equivalent datafiles are provided here to allow analysis at DNA level if required. Packages were installed via Anaconda navigator and versions were, to best knowledge: pandas 2.2.3, seaborn 0.13.2, umap-learn 0.5.4, shap 0.47.2, matplotlib 3.10.0.
+Machine learning was implemented in a Jupyter Notebook (ver. 1.1.1). This is attached here as ***membrane_protein_ML.ipynb***. The input files are ***labelled_fasta.csv*** which contains the FACS-selected sequences with appropriate labels and ***no_selected_seqs_protein.csv*** which is the remainder of the oligo library used for inference. The analysis presented is at protein level, equivalent datafiles are provided here to allow analysis at DNA level if required. Packages were installed via Anaconda navigator and versions were, to best knowledge: pandas 2.2.3, seaborn 0.13.2, umap-learn 0.5.4, shap 0.47.2, matplotlib 3.10.0.
 
+The hyperparameters of the Random Forest classifier were used at default settings without optimisation. These are:
+ 'bootstrap': True,
+ 'ccp_alpha': 0.0,
+ 'class_weight': None,
+ 'criterion': 'gini',
+ 'max_depth': None,
+ 'max_features': 'sqrt',
+ 'max_leaf_nodes': None,
+ 'max_samples': None,
+ 'min_impurity_decrease': 0.0,
+ 'min_samples_leaf': 1,
+ 'min_samples_split': 2,
+ 'min_weight_fraction_leaf': 0.0,
+ 'monotonic_cst': None,
+ 'n_estimators': 100,
+ 'n_jobs': None,
+ 'oob_score': False,
+ 'random_state': 42,
+ 'verbose': 0,
+ 'warm_start': False
+ 
 # Raw sequencing files
 The raw DNA sequencing data is in the Nanopore .pod5 format. Raw files are deposited at the EMBL-EBI BioStudies repository as project S-BSST2184 [https://doi.org/10.6019/S-BSST2184](https://doi.org/10.6019/S-BSST2184)
