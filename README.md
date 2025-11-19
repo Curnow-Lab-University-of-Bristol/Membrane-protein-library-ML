@@ -1,6 +1,6 @@
 # Membrane-protein-library-ML
 
-This repository contains datafiles and additional code for the (unpublished) membrane protein ML paper, using computational libraries to train predeictive models of membrane protein expresion in E. coli.
+This repository contains datafiles and additional code for the (unpublished) membrane protein ML paper, using computational libraries to train predeictive models of membrane protein expresion in E. coli. BiorXiv: https://doi.org/10.1101/2025.09.25.678317
 
 ### Files available here
 |Filename|Description|
@@ -53,7 +53,7 @@ Universal adaptors were introduced at either end of all library sequences with t
 % cat 5_prime_extend_high.fasta | seqkit mutate -i -1:GCGGCCGCACTCGAGCTGGTGCCGCGCGGCAGCA > end_ext_with_Ala_spacer.fasta
 ```
 # Nanopore sequencing
-Nanopore basecalling used Oxford Nanopore Dorado 0.7.1 in duplex mode on the University of Bristol HPC cluster BluePebble.
+Nanopore basecalling used Oxford Nanopore Dorado 0.7.1* in duplex mode on the University of Bristol HPC cluster BluePebble.
 
 Raw sequencing data (POD5) was split by channel information on the local computer.
 
@@ -92,7 +92,7 @@ dorado duplex --emit-fastq sup split_pod5s/ > seq_file.fastq
 ```
 This takes ~5h to complete at 8e+04 bases/s, duplex rate 16%.
 
-(After the submission of the manuscript we repeated the basecalling analysis with Dorado 1.2.0 using the non-duplex superaccurate (SUP) model dna_r10.4.1_e8.2_400bps_sup@v5.2.0. Filtering these SUP data at either Q25 or Q30 recovered >95% of the same sequences obtained from the original duplexing approach. There was no obvious difference in the outcomes when using the Q25 SUP sequences in ML. However, filtering at Q30 after SUP notably depleted the 'dim' sequences, giving rise to a smaller and unbalanced dataset overall that gave a slightly different distribution of prediction confidence in ML). 
+*(After the deposition of the manuscript we repeated the basecalling analysis with Dorado 1.2.0 using the non-duplex superaccurate (SUP) model dna_r10.4.1_e8.2_400bps_sup@v5.2.0. Filtering these SUP data at either Q25 or Q30 recovered >95% of the same sequences obtained from the original duplexing approach. There was no obvious difference in the outcomes when using the Q25 SUP sequences in ML. However, filtering at Q30 after SUP notably depleted the 'dim' sequences, giving rise to a smaller and unbalanced dataset overall that gave a slightly different distribution of prediction confidence in ML). 
 
 # Sequence analysis
 Install EMBOSS and seqkit via homebrew and fastq-filter (https://github.com/LUMC/fastq-filter)
