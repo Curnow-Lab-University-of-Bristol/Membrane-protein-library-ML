@@ -149,5 +149,8 @@ The hyperparameters of the scikit-learn Random Forest classifier were as default
  'random_state': 42,\
  'verbose': 0,\
  'warm_start': False 
+
+UMAP used default settings as implemented in scikit-learn, including n_neighbours=15, min_dist=0.1, metric=euclidean
+ 
 # Raw sequencing files
 The raw DNA sequencing data is in the Nanopore .pod5 format. Raw files are deposited at the EMBL-EBI BioStudies repository as project S-BSST2184 [https://doi.org/10.6019/S-BSST2184](https://doi.org/10.6019/S-BSST2184)
