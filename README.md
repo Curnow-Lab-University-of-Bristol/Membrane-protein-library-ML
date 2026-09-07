@@ -1,6 +1,6 @@
 # Membrane-protein-library-ML
 
-This repository contains datafiles and additional code for the (unpublished) membrane protein ML paper, using computational libraries to train predeictive models of membrane protein expresion in E. coli. biorxiv: https://doi.org/10.1101/2025.09.25.678317
+This repository contains datafiles and additional code for the paper 'Effective sequence-to-expression prediction for a model membrane protein using machine learning and computational protein design' by Y. Shen et al (2026) ACS Synthetic Biology (https://doi.org/10.1021/acssynbio.6c00206).
 
 ### Files available here
 |Filename|Description|
