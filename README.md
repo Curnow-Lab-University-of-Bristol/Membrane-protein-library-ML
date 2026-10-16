@@ -12,7 +12,8 @@ This repository contains datafiles and additional code for the paper 'Effective 
 |curnow_bright_seqs_protein.fasta|Translation of FACS-selected sequences - high-GFP phenotype|
 |curnow_dim_seqs.fasta|FACS-selected sequences - low GFP phenotype|
 |curnow_dim_seqs_protein.fasta|Translation of FACS-selected sequences - low GFP phenotype|
-|no_selected_seqs_DNA.fasta|Oligo pool nucelotide sequences with FACS-selected sequences removed. Unlabelled|
+|example_full_gene_sequence.fasta| Complete gene and protein sequences showing how the synthetic genes were cloned upstream of short linker region and eGFP.| 
+|no_selected_seqs_DNA.fasta| Oligo pool nucelotide sequences with FACS-selected sequences removed. Unlabelled|
 |no_selected_seqs_protein.fasta|Translated oligo pool sequences with FACS-selected sequences removed. Unlabelled|
 |no_selected_seqs_protein.csv|Translated oligo pool sequences with FACS-selected sequences removed. Unlabelled, used for inference|
 |labelled_fasta.csv|Protein sequences from FACS-sorted populations labelled bright=1, dim=0|
